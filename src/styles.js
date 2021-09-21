@@ -1,0 +1,35 @@
+import styled from "styled-components";
+
+//  Styled Components
+export const About = styled.div`
+  align-items: center;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  min-height: 90vh;
+  padding: 5rem 10rem;
+`;
+
+export const Description = styled.div`
+  flex: 1;
+  padding-right: 5rem;
+
+  h2 {
+    font-weight: lighter;
+  }
+`;
+
+export const Image = styled.div`
+  flex: 1;
+  overflow: hidden;
+
+  img {
+    height: 80vh;
+    object-fit: cover;
+    width: 100%;
+  }
+`;
+
+export const Hide = styled.div`
+  overflow: hidden;
+`;
