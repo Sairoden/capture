@@ -5,7 +5,14 @@ import styled from "styled-components";
 
 // Animations
 import { motion } from "framer-motion";
-import { pageAnimation } from "../animation";
+import {
+  pageAnimation,
+  fade,
+  photoAnim,
+  lineAnim,
+  slider,
+  sliderContainer,
+} from "../animation";
 
 // Images
 import athlete from "../img/athlete-small.png";
@@ -21,11 +28,21 @@ const OurWork = () => {
       animate="show"
       style={{ background: "#fff" }}
     >
+      <motion.div variants={sliderContainer}>
+        <Frame1 variants={slider}></Frame1>
+        <Frame2 variants={slider}></Frame2>
+        <Frame3 variants={slider}></Frame3>
+        <Frame4 variants={slider}></Frame4>
+      </motion.div>
       <Movie>
-        <h2>The Athlete</h2>
-        <div className="line"></div>
+        <motion.h2 variants={fade}>The Athlete</motion.h2>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/the-athlete">
-          <img src={athlete} alt="A boxer resting" />
+          <motion.img
+            variants={photoAnim}
+            src={athlete}
+            alt="A boxer resting"
+          />
         </Link>
       </Movie>
 
@@ -63,7 +80,7 @@ const Movie = styled.div`
 
   .line {
     height: 0.5rem;
-    background: #ccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
 
@@ -72,6 +89,33 @@ const Movie = styled.div`
     height: 70vh;
     object-fit: cover;
   }
+`;
+
+const Hide = styled.div`
+  overflow: hidden;
+`;
+
+// Frame Animation
+const Frame1 = styled(motion.div)`
+  background: #fffebf;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 10%;
+  width: 100%;
+  z-index: 2;
+`;
+
+const Frame2 = styled(Frame1)`
+  background: #ff8efb;
+`;
+
+const Frame3 = styled(Frame1)`
+  background: #8ed2ff;
+`;
+
+const Frame4 = styled(Frame1)`
+  background: #8effa0;
 `;
 
 export default OurWork;
