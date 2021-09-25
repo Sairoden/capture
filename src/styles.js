@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 //  Styled Components
-export const About = styled.div`
-  align-items: center;
+export const About = styled(motion.div)`
+  align-items: center;  
   color: #fff;
   display: flex;
   justify-content: space-between;
