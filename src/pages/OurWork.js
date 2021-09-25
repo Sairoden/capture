@@ -12,7 +12,9 @@ import {
   lineAnim,
   slider,
   sliderContainer,
+  swoopAdoop,
 } from "../animation";
+import { useScroll } from "../components/useScroll";
 
 // Images
 import athlete from "../img/athlete-small.png";
@@ -20,6 +22,9 @@ import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
 
 const OurWork = () => {
+  const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
+
   return (
     <Work
       exit="exit"
@@ -34,6 +39,7 @@ const OurWork = () => {
         <Frame3 variants={slider}></Frame3>
         <Frame4 variants={slider}></Frame4>
       </motion.div>
+
       <Movie>
         <motion.h2 variants={fade}>The Athlete</motion.h2>
         <motion.div variants={lineAnim} className="line"></motion.div>
@@ -46,21 +52,28 @@ const OurWork = () => {
         </Link>
       </Movie>
 
-      <Movie>
+      <Movie ref={element} variants={fade} animate={controls} initial="hidden">
         <h2>The Racer</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnim} className="line"></motion.div>
         <Link to="/work/the-racer">
           <img src={theracer} alt="A girl posing on her car" />
         </Link>
       </Movie>
 
-      <Movie>
-        <h2>Good Times</h2>
-        <div className="line"></div>
-        <Link to="/work/good-times">
-          <img src={goodtimes} alt="Couple hugging" />
-        </Link>
-      </Movie>
+      <Hide>
+        <Movie
+          ref={element2}
+          variants={fade}
+          animate={controls2}
+          initial="hidden"
+        >
+          <h2>Good Times</h2>
+          <motion.div variants={lineAnim} className="line"></motion.div>
+          <Link to="/work/good-times">
+            <img src={goodtimes} alt="Couple hugging" />
+          </Link>
+        </Movie>
+      </Hide>
     </Work>
   );
 };
@@ -75,8 +88,9 @@ const Work = styled(motion.div)`
   }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
+  overflow: hidden;
 
   .line {
     height: 0.5rem;
