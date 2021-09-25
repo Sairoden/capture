@@ -15,6 +15,7 @@ import {
   swoopAdoop,
 } from "../animation";
 import { useScroll } from "../components/useScroll";
+import ScrollTop from "../components/ScrollTop";
 
 // Images
 import athlete from "../img/athlete-small.png";
@@ -33,6 +34,8 @@ const OurWork = () => {
       animate="show"
       style={{ background: "#fff" }}
     >
+      <ScrollTop></ScrollTop>
+
       <motion.div variants={sliderContainer}>
         <Frame1 variants={slider}></Frame1>
         <Frame2 variants={slider}></Frame2>

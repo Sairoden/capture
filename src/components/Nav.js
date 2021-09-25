@@ -32,6 +32,9 @@ const StyledNav = styled.div`
   margin: auto;
   min-height: 10vh;
   padding: 1rem 10rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
   a {
     color: #fff;
