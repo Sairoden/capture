@@ -3,12 +3,18 @@ import { motion } from "framer-motion";
 
 //  Styled Components
 export const About = styled(motion.div)`
-  align-items: center;  
+  align-items: center;
   color: #fff;
   display: flex;
   justify-content: space-between;
   min-height: 90vh;
   padding: 5rem 10rem;
+
+  @media (max-width: 1300px) {
+    display: block;
+    padding: 2rem;
+    text-align: center;
+  }
 `;
 
 export const Description = styled.div`
@@ -18,6 +24,14 @@ export const Description = styled.div`
 
   h2 {
     font-weight: lighter;
+  }
+
+  @media (max-width: 1300px) {
+    padding: 0;
+
+    button {
+      margin: 2rem 0rem 5rem 0rem; 
+    }
   }
 `;
 
